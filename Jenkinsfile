@@ -14,8 +14,10 @@ node {
             sh "sudo docker login hub.olymptrade.com --username=$USERNAME --password=$PASSWORD"            
         }
         
-        sh "sudo docker build -t grizzly/hello1:latest ."
-        sh "sudo docker tag grizzly/hello1:latest grizzly/hello1:v${env.BUILD_ID}"
+        sh "sudo docker build -t grizzly/hello1:latest ."        
+        sh "sudo docker tag grizzly/hello1:latest hub.olymptrade.com/hello1:latest"
+        sh "sudo docker push hub.olymptrade.com/hello1:latest"
+
     }
 
 }
