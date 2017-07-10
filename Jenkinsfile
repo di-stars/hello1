@@ -11,8 +11,7 @@ node {
     stage ('Build container'){
         
         withCredentials([usernamePassword(credentialsId: 'hub_olymptrade', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-            echo "$USERNAME"
-            echo "$PASSWORD"
+            sh "docker login hub.olymptrade.com --username=$USERNAME --password=$PASSWORD"            
         }
         
         sh "sudo docker build -t grizzly/hello1:latest ."
