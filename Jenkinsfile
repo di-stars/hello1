@@ -9,7 +9,7 @@ node {
     }
 
     stage ('Build container'){
-        sh 'docker build -t grizzly/hello1:latest .'
+        sh 'sudo docker build -t grizzly/hello1:latest .'
     }
 
 }
