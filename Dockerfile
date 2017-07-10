@@ -1,7 +1,6 @@
 FROM golang:latest 
 RUN mkdir /app
-COPY $JOB_NAME /app/main
+COPY ${WORKSPACE}/${MICRO_NAME} /app/${MICRO_NAME}
 WORKDIR /app 
-CMD ["/app/main"]
+CMD ["/app/${MICRO_NAME}"]
 EXPOSE 8081
-
