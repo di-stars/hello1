@@ -11,7 +11,7 @@ node {
         writeFile file: "Dockerfile", text: """
             FROM golang:latest
             RUN mkdir /app
-            COPY ${WORKSPACE}/${MICRO_NAME} /app/${MICRO_NAME}
+            COPY ${MICRO_NAME} /app/${MICRO_NAME}
             CMD ["/app/${MICRO_NAME}"]
             EXPOSE ${MICRO_PORT_PROD}
         """
