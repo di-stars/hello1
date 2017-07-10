@@ -10,6 +10,10 @@ node {
 
     stage ('Build container'){
         
+        echo "$JOB_NAME"
+        echo "$WORKSPACE"
+        echo "$PROJECTNAME"
+        
         withCredentials([usernamePassword(credentialsId: 'hub_olymptrade', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
             sh "sudo docker login hub.olymptrade.com --username=$USERNAME --password=$PASSWORD"            
         }
