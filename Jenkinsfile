@@ -16,7 +16,7 @@ node {
         
         sh "sudo docker build -t grizzly/hello1:latest ."        
         sh "sudo docker tag grizzly/hello1:latest hub.olymptrade.com/hello1:latest"
-        sh "sudo docker push hub.olymptrade.com/hello1:latest"
+        sh "sudo docker push hub.olymptrade.com/grizzly/hello1:latest"
 
     }
 
