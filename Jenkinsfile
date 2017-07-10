@@ -1,6 +1,10 @@
 node {
     
-    stage 'Build'
+    stage('Checkout') {
+        checkout scm
+    }
+    
+    stage ('Build')
         sh 'go build'
 
 }
