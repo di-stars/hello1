@@ -12,7 +12,7 @@ node {
         
         echo "$JOB_NAME"
         echo "$WORKSPACE"
-        echo "$PROJECTNAME"
+        echo "$NODE_NAME"
         
         withCredentials([usernamePassword(credentialsId: 'hub_olymptrade', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
             sh "sudo docker login hub.olymptrade.com --username=$USERNAME --password=$PASSWORD"            
