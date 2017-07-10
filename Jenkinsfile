@@ -8,11 +8,13 @@ node {
     }
     
     stage ('Generate Dockerfile'){
-        writeFile file: "Dockerfile", text: "FROM golang:latest"
-        writeFile file: "Dockerfile", text: "RUN mkdir /app"
-        writeFile file: "Dockerfile", text: "COPY ${WORKSPACE}/${MICRO_NAME} /app/${MICRO_NAME}"
-        writeFile file: "Dockerfile", text: "CMD ["/app/${MICRO_NAME}"]"
-        writeFile file: "Dockerfile", text: "EXPOSE ${MICRO_PORT_PROD}"
+        writeFile file: "Dockerfile", text: """
+            FROM golang:latest
+            RUN mkdir /app
+            COPY ${WORKSPACE}/${MICRO_NAME} /app/${MICRO_NAME}
+            CMD ["/app/${MICRO_NAME}"]
+            EXPOSE ${MICRO_PORT_PROD}
+        """
     }
 
     stage ('Build app'){
